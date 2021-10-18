@@ -3,7 +3,7 @@ Webshop Rendszerterv
 
 1. A rendszer célja
 
-    Projektünk célja egy üzemeltetői és felhasználói szempontból és egyszerűen használható rezponzív és akadálymentesített webshop weboldal létrehozása. Az oldalra lehet email, jelszó párossal regisztrálni vagy bejelentkezni. A webshopon megtekinthetőek a megvásárolni kívánt termékek amik elhelyezhetőek a kosárban. A profil alatt továbbá megtekinthetőek a rendelési előzmények és a kosár tartalma.
+    Projektünk célja egy üzemeltetői és felhasználói szempontból is egyszerűen használható rezponzív és akadálymentesített webshop weboldal létrehozása. Az oldalra lehet email és jelszó párossal regisztrálni és bejelentkezni. A webshopon megtekinthetőek a megvásárolni kívánt termékek, amik elhelyezhetőek a kosárban. A profil alatt továbbá megtekinthetőek a rendelési előzmények és a kosár tartalma.
     
 2. Projektterv
   
