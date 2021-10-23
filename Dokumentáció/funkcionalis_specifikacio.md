@@ -38,8 +38,10 @@ Funkcionális specifikáció
     A következő víziónk volt a weboldal kinézetéről
 
     ![fooldal](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/fooldal.png)
+    Terv a főoldalról.
 
     ![bejelentkezes](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/bejelentkezes.png)
+    Terv a bejelentkező képernyőről.
 10. Forgató könyvek
 
     (v1.0)
