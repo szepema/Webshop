@@ -35,9 +35,13 @@ Funkcionális specifikáció
         
 7. Képernyő tervek
 
-    A következő víziónk volt a weboldal kinézetéről
+    A következő víziónk volt a weboldal kinézetéről:
+
+    Az első kép a weboldal főoldalát probálja megmutatni:
 
     ![fooldal](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/fooldal.png)
+
+    A második kép pedig a bejelentkezési felületet tartalmazza:
 
     ![bejelentkezes](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/bejelentkezes.png)
  
