@@ -6,25 +6,7 @@ main{
     background-color: #c8d8e4;
 }
 
-.card:hover{
-	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);;
-}
-
-.card>img{
-    max-height: 200px;
-    width: auto;
-}
-
-.card-title{
-    height: 101px;
-    overflow: hidden;
-}
-
 .my-list{
 	list-style-type:none;
 	padding-left: 0;
-}
-
-.bottom{
-	align-self: flex-end;
 }

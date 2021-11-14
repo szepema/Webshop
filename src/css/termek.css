@@ -1,0 +1,21 @@
+main{
+    background-color: #f2f2f2;
+}
+
+.row{ 
+    background-color: #c8d8e4;
+}
+
+.card:hover{
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);;
+}
+
+.card>img{
+    max-height: 200px;
+    width: auto;
+}
+
+.card-title{
+    height: 101px;
+    overflow: hidden;
+}
