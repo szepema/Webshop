@@ -13,6 +13,17 @@ header{
     background-color: #2b6777;
 }
 
+.dropdown-menu{
+    position: absolute; 
+    inset: 0px auto auto 0px; 
+    margin: 0px; transform: 
+    translate(0px, 40px);
+}
+
+.dropdown>a::after{
+    content: "\23F7";
+}
+
 footer{
     position: absolute;
 	bottom: 0;
