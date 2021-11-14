@@ -1,5 +1,9 @@
+main{
+    min-height: 94.1vh;
+}
+
 footer{
-    max-width: 70%;
+    width: 100%;
     background-color: #2b6777;
 }
 
@@ -14,7 +18,8 @@ body {
     background-color: #f2f2f2;
 }
 
-
-
-
-
+img{
+    border-radius: 50%;
+    max-height: 300px;
+    width: auto;
+}
