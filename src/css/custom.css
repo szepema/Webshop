@@ -21,7 +21,7 @@ header{
 }
 
 .dropdown>a::after{
-    content: "▼";
+    content: "\23F7";
 }
 
 footer{
@@ -33,9 +33,9 @@ footer{
     right: 0;
 }
 
-.clear{ 
+.clear{
     clear: both;
-    height: 56px;
+    height: 52px;
 }
 
 .ikon{
