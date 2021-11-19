@@ -10,3 +10,9 @@ main{
 	list-style-type:none;
 	padding-left: 0;
 }
+
+img{
+    max-height: 200px;
+    max-width: 300px;
+    width: auto;
+}
