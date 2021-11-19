@@ -1,139 +1,73 @@
+<?php
+	include_once('config.php');
+	include_once('utils.php');
+
+
+	$sql = "SELECT * from alkategoria";
+	$query = $pdo->prepare($sql);
+	$query->execute();
+	while($row = $query->fetch()){
+		if( atalakitas_link($row['alkategoria_nev']) == explode('/', $_SERVER['REQUEST_URI'])[2] ){
+			$alkategoria_nev = $row['alkategoria_nev'];
+			$alkategoria_id = $row['id'];
+		}
+	}
+?>
+
 <main class="mx-auto">
 
 	<link rel="stylesheet" type="text/css" href="/css/custom.css">
 	<link rel="stylesheet" type="text/css" href="/css/alkategoria.css">
 
-	<h1>Alkategória1</h1>
-	<div class="row mx-auto my-3">
-		<div class="col-xl-3 col-md-6 col-mb-3 top-left colour1">
-			<img src="img/phone1.jpg" class="card-img-top rounded float-left mt-2 mb-2 mx-auto px-5" alt="termék képe">
-		</div>
-		<div class="col-xl-6 col-md-12 col-mb-6 top-center colour2">
-			<div class="row mx-auto my-2 colour01">
-				<h2 class="fs-3">Termék neve</h2>
-			</div>
-			<div class="row mx-auto my-3 colour02">
-				<div class="col-xl-6 col-md-6 col-mb-2 colour1">
-					<ul class="fs-6 my-list">
-						<li>Gyártó</li>
-						<li>Kijelző</li>
-						<li>SIM kártya</li>
-						<li>Operációs rendszer</li>
-					</ul>
-				</div>
-				<div class="col-xl-6 col-md-6 col-mb-2 colour3">
-					<ul class="fs-6 my-list">
-						<li>Processzor</li>
-						<li>RAM</li>
-						<li>Memória</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="col-xl-3 col-md-6 col-mb-3 colour3">
-			<div class="row mx-auto my-2 colour01">
-				<h2 class="text-danger fs-3">Ár: 100 Ft</h2>
-			</div>
-			<div class="row mx-auto my-3 colour2">
-				<p class="fs-6">Raktáron: 0 db</p>
-			</div>
-			<div class="row mx-auto my-5 colour01">
-				<div class="d-flex justify-content-around kosar-reszletek">
-					<a href="termek.html" class="btn btn-primary">Részletek</a>
-					<form>
-						<button type="submit" class="btn btn-success">Kosárba</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+	<h1><?php echo $alkategoria_nev; ?></h1>
 
-	<div class="row mx-auto my-3">
-		<div class="col-xl-3 col-md-6 col-mb-3 top-left colour1">
-			<img src="img/phone1.jpg" class="card-img-top rounded float-left mt-2 mb-2 mx-auto px-5" alt="termék képe">
-		</div>
-		<div class="col-xl-6 col-md-12 col-mb-6 top-center colour2">
-			<div class="row mx-auto my-2 colour01">
-				<h2 class="fs-3">Termék neve</h2>
-			</div>
-			<div class="row mx-auto my-3 colour02">
-				<div class="col-xl-6 col-md-6 col-mb-2 colour1">
-					<ul class="fs-6 my-list">
-						<li>Gyártó</li>
-						<li>Kijelző</li>
-						<li>SIM kártya</li>
-						<li>Operációs rendszer</li>
-					</ul>
-				</div>
-				<div class="col-xl-6 col-md-6 col-mb-2 colour3">
-					<ul class="fs-6 my-list">
-						<li>Processzor</li>
-						<li>RAM</li>
-						<li>Memória</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="col-xl-3 col-md-6 col-mb-3 colour3">
-			<div class="row mx-auto my-2 colour01">
-				<h2 class="text-danger fs-3">Ár: 100 Ft</h2>
-			</div>
-			<div class="row mx-auto my-3 colour2">
-				<p class="fs-6">Raktáron: 0 db</p>
-			</div>
-			<div class="row mx-auto my-5 colour01">
-				<div class="d-flex justify-content-around kosar-reszletek">
-					<a href="termek.html" class="btn btn-primary">Részletek</a>
-					<form>
-						<button type="submit" class="btn btn-success">Kosárba</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+	<?php
+		$sql1 = "SELECT id, nev, ar, kep_url, raktaron FROM termek WHERE alkategoria_id = " . $alkategoria_id;
+		$query1 = $pdo->prepare($sql1);
+		$query1->execute();
+		while($row = $query1->fetch()){
+			$termek_nev = $row['nev'];
+			echo '<div class="row mx-auto my-3">
+					<div class="col-xl-3 col-md-6 position-relative">
+						<img src="' . $row['kep_url'] . '" class="position-absolute top-50 start-50 translate-middle" alt="' . $termek_nev . '">
+					</div>
+					<div class="col-xl-6 col-md-12">
+						<div class="row mx-auto my-2">
+							<h2 class="fs-3">' . $termek_nev . '</h2>
+						</div>
+						<div class="row mx-auto my-3">
+							<div class="col-xl-12 col-md-12">
+								<ul class="my-list">';
 
-	<div class="row mx-auto my-3">
-		<div class="col-xl-3 col-md-6 col-mb-3 top-left colour1">
-			<img src="img/phone1.jpg" class="card-img-top rounded float-left mt-2 mb-2 mx-auto px-5" alt="termék képe">
-		</div>
-		<div class="col-xl-6 col-md-12 col-mb-6 top-center colour2">
-			<div class="row mx-auto my-2 colour01">
-				<h2 class="fs-3">Termék neve</h2>
-			</div>
-			<div class="row mx-auto my-3 colour02">
-				<div class="col-xl-6 col-md-6 col-mb-2 colour1">
-					<ul class="fs-6 my-list">
-						<li>Gyártó</li>
-						<li>Kijelző</li>
-						<li>SIM kártya</li>
-						<li>Operációs rendszer</li>
-					</ul>
-				</div>
-				<div class="col-xl-6 col-md-6 col-mb-2 colour3">
-					<ul class="fs-6 my-list">
-						<li>Processzor</li>
-						<li>RAM</li>
-						<li>Memória</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="col-xl-3 col-md-6 col-mb-3 colour3">
-			<div class="row mx-auto my-2 colour01">
-				<h2 class="text-danger fs-3">Ár: 100 Ft</h2>
-			</div>
-			<div class="row mx-auto my-3 colour2">
-				<p class="fs-6">Raktáron: 0 db</p>
-			</div>
-			<div class="row mx-auto my-5 colour01">
-				<div class="d-flex justify-content-around kosar-reszletek">
-					<a href="termek.html" class="btn btn-primary">Részletek</a>
-					<form>
-						<button type="submit" class="btn btn-success">Kosárba</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+			$sql2 = "SELECT * FROM termek_adatok WHERE termek_id = " . $row['id'] . " LIMIT 4";
+			$query2 = $pdo->prepare($sql2);
+			$query2->execute();
+			while($row2 = $query2->fetch()){
+				echo '	<li>' . $row2['adat_nev'] . ': ' . $row2['adat_ertek'] . ' ' . $row2['mertekegyseg'] . '</li>';
+			}
+
+			echo				'</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-md-6">
+						<div class="row mx-auto my-2">
+							<h2 class="text-danger fs-3">Ár: ' . $row['ar'] . ' Ft</h2>
+						</div>
+						<div class="row mx-auto my-3">
+							<p>Raktáron: ' . $row['raktaron'] . ' db</p>
+						</div>
+						<div class="row mx-auto my-5">
+							<div class="d-flex justify-content-around">
+								<a href="' . $_SERVER['REQUEST_URI'] . '/' . atalakitas_link($termek_nev) . '" class="btn btn-primary">Részletek</a>
+								<form>
+									<button type="submit" class="btn btn-success">Kosárba</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>';
+		}
+	?>
 
 </main>
