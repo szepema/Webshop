@@ -73,7 +73,7 @@
                             <h2 class="card-title fs-3" title="' . $termek_nev . '">' . $termek_nev . '"</h2>
                             <p class="text-danger my-3 fs-4">Ár: ' . $row['ar'] . ' Ft</p>
                             <div class="d-flex justify-content-around kosar-reszletek">
-                                <a href="' . atalakitas_link($kategoria['kategoria_nev']) . '/' . atalakitas_link($alkategoria['alkategoria_nev']) . '/' . atalakitas_link($termek_nev) . '" class="btn btn-primary">Részletek</a>
+                                <a href="' . urlencode($kategoria['kategoria_nev']) . '/' . urlencode($alkategoria['alkategoria_nev']) . '/' . urlencode($termek_nev) . '" class="btn btn-primary">Részletek</a>
                                 <form>
                                     <button type="submit" class="btn btn-success">Kosárba</button>
                                 </form>
@@ -115,7 +115,7 @@
                             <h2 class="card-title fs-3" title="' . $termek_nev . '">' . $termek_nev . '</h2>
                             <p class="text-danger my-3 fs-4">Ár: ' . $row['ar'] . ' Ft</p>
                             <div class="d-flex justify-content-around kosar-reszletek">
-                                <a href="' . atalakitas_link($kategoria['kategoria_nev']) . '/' . atalakitas_link($alkategoria['alkategoria_nev']) . '/' . atalakitas_link($termek_nev) . '" class="btn btn-primary">Részletek</a>
+                                <a href="' . urlencode($kategoria['kategoria_nev']) . '/' . urlencode($alkategoria['alkategoria_nev']) . '/' . urlencode($termek_nev) . '" class="btn btn-primary">Részletek</a>
                                 <form>
                                     <button type="submit" class="btn btn-success">Kosárba</button>
                                 </form>

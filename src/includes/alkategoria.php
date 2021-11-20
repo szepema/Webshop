@@ -1,17 +1,10 @@
 <?php
 	include_once('config.php');
-	include_once('utils.php');
 
-
-	$sql = "SELECT * from alkategoria";
+	$sql = "SELECT id, alkategoria_nev from alkategoria WHERE alkategoria_nev = '" . urldecode(explode('/', $_SERVER['REQUEST_URI'])[2]) . "'";
 	$query = $pdo->prepare($sql);
 	$query->execute();
-	while($row = $query->fetch()){
-		if( atalakitas_link($row['alkategoria_nev']) == explode('/', $_SERVER['REQUEST_URI'])[2] ){
-			$alkategoria_nev = $row['alkategoria_nev'];
-			$alkategoria_id = $row['id'];
-		}
-	}
+	$alkategoria = $query->fetch();
 ?>
 
 <main class="mx-auto">
@@ -19,10 +12,10 @@
 	<link rel="stylesheet" type="text/css" href="/css/custom.css">
 	<link rel="stylesheet" type="text/css" href="/css/alkategoria.css">
 
-	<h1><?php echo $alkategoria_nev; ?></h1>
+	<h1><?php echo $alkategoria['alkategoria_nev']; ?></h1>
 
 	<?php
-		$sql1 = "SELECT id, nev, ar, kep_url, raktaron FROM termek WHERE alkategoria_id = " . $alkategoria_id;
+		$sql1 = "SELECT id, nev, ar, kep_url, raktaron FROM termek WHERE alkategoria_id = " . $alkategoria['id'];
 		$query1 = $pdo->prepare($sql1);
 		$query1->execute();
 		while($row = $query1->fetch()){
@@ -59,7 +52,7 @@
 						</div>
 						<div class="row mx-auto my-5">
 							<div class="d-flex justify-content-around">
-								<a href="' . $_SERVER['REQUEST_URI'] . '/' . atalakitas_link($termek_nev) . '" class="btn btn-primary">Részletek</a>
+								<a href="' . $_SERVER['REQUEST_URI'] . '/' . urlencode($termek_nev) . '" class="btn btn-primary">Részletek</a>
 								<form>
 									<button type="submit" class="btn btn-success">Kosárba</button>
 								</form>

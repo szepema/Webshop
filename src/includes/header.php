@@ -1,6 +1,5 @@
 <?php
     include_once('config.php');
-    include_once('utils.php');
 ?>
 
 <header class="p-1 text-white mx-auto">
@@ -17,10 +16,9 @@
 
                 while($row = $query->fetch()){
                     $kategoria_nev = $row['kategoria_nev'];
-                    $kategoria_link = atalakitas_link($kategoria_nev);
                 
                     echo '<div class="dropdown">
-                            <a class="btn text-light" href="/' . $kategoria_link . '" role="button"
+                            <a class="btn text-light" href="/' . urlencode($kategoria_nev) . '" role="button"
                                 aria-expanded="false">
                                 ' . $kategoria_nev . '
                             </a>
@@ -33,9 +31,8 @@
 
                     while($row1 = $query1->fetch()){
                         $alkategoria_nev = $row1['alkategoria_nev'];
-                        $alkategoria_link = atalakitas_link($alkategoria_nev);
 
-                        echo '<li><a class="dropdown-item" href="/' . $kategoria_link . '/' . $alkategoria_link . '">' . $alkategoria_nev . '</a></li>';
+                        echo '<li><a class="dropdown-item" href="/' . urlencode($kategoria_nev) . '/' . urlencode($alkategoria_nev) . '">' . $alkategoria_nev . '</a></li>';
                     }
                     
                     echo '
