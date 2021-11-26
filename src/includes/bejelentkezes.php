@@ -83,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="row justify-content-center">
             <div class="col-12 col-sm-6 col-md-3">
 
-                <form class="form-container" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <form class="form-container" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>" method="post">
                     <h2 class="card-title fs-3">Bejelentkezés</h2>
                     <div class="form-group">
                         <label for="exampleInputEmail1">E-mail cím</label>

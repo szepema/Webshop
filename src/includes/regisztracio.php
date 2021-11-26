@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } elseif (strlen(trim($_POST["jelszo"])) < 6) {
         $jelszo_err = "Túl rövid a jelszó!";
 
-    } elseif (strlen(trim($_POST["jelszo"])) > 12) {
+    } elseif (strlen(trim($_POST["jelszo"])) > 100) {
         $jelszo_err = "Túl hosszú a jelszó!";
 
     } elseif (!preg_match("#[0-9]+#", $_POST["jelszo"])) {
@@ -96,25 +96,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="row justify-content-center">
             <div class="col-12 col-sm-6 col-md-3">
 
-                <form class="form-container" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <form class="form-container" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>" method="post">
                     <h2 class="card-title fs-3">Regisztráció</h2>
                     <div class="form-group">
                         <label for="exampleInputEmail1">E-mail cím</label>
                         <input type="email"  name="email" id="exampleInputEmail1" aria-describedby="EmailHelp"
-                        placeholder="valaki@gmail.com" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">>
+                        placeholder="valaki@gmail.com" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
                         <span class="invalid-feedback"><?php echo $email_err; ?></span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Jelszó</label>
                         <input type="password" name="jelszo" id="exampleInputPassword1" placeholder="******" 
                         class="form-control <?php echo (!empty($jelszo_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $jelszo; ?>">
-                <span class="invalid-feedback"><?php echo $jelszo_err; ?></span>>
+                <span class="invalid-feedback"><?php echo $jelszo_err; ?></span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Jelszó megerősítés</label>
                         <input type="password" name="jelszo_confirm" id="exampleInputPassword1" placeholder="******"
                         class="form-control <?php echo (!empty($confirm_jelszo_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_jelszo; ?>">
-                        <span class="invalid-feedback"><?php echo $confirm_jelszo_err; ?></span>>
+                        <span class="invalid-feedback"><?php echo $confirm_jelszo_err; ?></span>
                     </div>
                     <button type="submit" name="create" class="btn btn-primary">Regisztráció</button>
                     <p>Már van fiókja? <a href="/bejelentkezes">Jelentkezzen be!</a></p>
