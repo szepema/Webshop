@@ -9,8 +9,8 @@
 
 <main class="mx-auto">
 
-	<link rel="stylesheet" type="text/css" href="css/custom.css">
-	<link rel="stylesheet" type="text/css" href="css/kategoria.css">
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<link rel="stylesheet" type="text/css" href="/css/kategoria.css">
 
 	<h1><?php echo $kategoria['kategoria_nev']; ?></h1>
 
