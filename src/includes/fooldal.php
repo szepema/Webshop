@@ -1,6 +1,9 @@
 <?php
     include_once('config.php');
-    include_once('utils.php');
+    
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        include('kosarba.php');
+    }
 ?>
 
 <main class="mx-auto">
@@ -47,7 +50,7 @@
     <h3 class="my-1">Népszerű termékek</h3>
 
     <?php
-        $sql = "SELECT nev, ar, kep_url, alkategoria_id FROM termek LIMIT 4";
+        $sql = "SELECT id, nev, ar, kep_url, alkategoria_id FROM termek LIMIT 4";
         $query = $pdo->prepare($sql);
         $query->execute();
 
@@ -74,7 +77,9 @@
                             <p class="text-danger my-3 fs-4">Ár: ' . $row['ar'] . ' Ft</p>
                             <div class="d-flex justify-content-around kosar-reszletek">
                                 <a href="' . urlencode($kategoria['kategoria_nev']) . '/' . urlencode($alkategoria['alkategoria_nev']) . '/' . urlencode($termek_nev) . '" class="btn btn-primary">Részletek</a>
-                                <form>
+                                <form action="' . $_SERVER["REQUEST_URI"] . '" method="post">
+                                    <input type="hidden" name="hanyDarab" value="1" class="form-control">
+                                    <input type="hidden" name="termekId" value="' . $row["id"] . '" class="form-control">
                                     <button type="submit" class="btn btn-success">Kosárba</button>
                                 </form>
                             </div>
@@ -89,7 +94,7 @@
     <h3 class="my-1">Kiemelt termékek</h3>
 
     <?php
-        $sql = "SELECT nev, ar, kep_url, alkategoria_id FROM termek LIMIT 4";
+        $sql = "SELECT id, nev, ar, kep_url, alkategoria_id FROM termek LIMIT 4";
         $query = $pdo->prepare($sql);
         $query->execute();
 
@@ -116,7 +121,9 @@
                             <p class="text-danger my-3 fs-4">Ár: ' . $row['ar'] . ' Ft</p>
                             <div class="d-flex justify-content-around kosar-reszletek">
                                 <a href="' . urlencode($kategoria['kategoria_nev']) . '/' . urlencode($alkategoria['alkategoria_nev']) . '/' . urlencode($termek_nev) . '" class="btn btn-primary">Részletek</a>
-                                <form>
+                                <form action="' . $_SERVER["REQUEST_URI"] . '" method="post">
+                                    <input type="hidden" name="hanyDarab" value="1" class="form-control">
+                                    <input type="hidden" name="termekId" value="' . $row["id"] . '" class="form-control">
                                     <button type="submit" class="btn btn-success">Kosárba</button>
                                 </form>
                             </div>

@@ -1,6 +1,10 @@
 <?php
 	include_once('config.php');
 
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+        include('kosarba.php');
+    }
+
 	$sql = "SELECT id, kategoria_nev from kategoria WHERE kategoria_nev = '" . urldecode(explode('/', $_SERVER['REQUEST_URI'])[1]) . "'";
 	$query = $pdo->prepare($sql);
 	$query->execute();
@@ -27,7 +31,7 @@
 						<h3 class="my-1">' . $alkategoria_nev . '</h3>
 					</a>';
 
-			$sql2 = "SELECT nev, ar, kep_url FROM termek WHERE alkategoria_id = " . $alkategoria_id . " LIMIT 4";
+			$sql2 = "SELECT id, nev, ar, kep_url FROM termek WHERE alkategoria_id = " . $alkategoria_id . " LIMIT 4";
 			$query2 = $pdo->prepare($sql2);
 			$query2->execute();
 			while($row2 = $query2->fetch()){
@@ -41,7 +45,9 @@
 								<p class="text-danger my-3 fs-4">Ár: ' . $row2['ar'] . ' Ft</p>
 								<div class="d-flex justify-content-around kosar-reszletek">
 									<a href="' . $_SERVER['REQUEST_URI'] . '/' . urlencode($alkategoria_nev) . '/' . urlencode($termek_nev) . '" class="btn btn-primary">Részletek</a>
-									<form>
+									<form action="' . $_SERVER["REQUEST_URI"] . '" method="post">
+										<input type="hidden" name="hanyDarab" value="1" class="form-control">
+										<input type="hidden" name="termekId" value="' . $row2["id"] . '" class="form-control">
 										<button type="submit" class="btn btn-success">Kosárba</button>
 									</form>
 								</div>

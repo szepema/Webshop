@@ -23,7 +23,7 @@
             include('includes/termek.php');
         }else if($alkategoria != ""){
             include('includes/alkategoria.php');
-        }else if($oldal != "bejelentkezes" && $oldal != "regisztracio" && $oldal != "fooldal" && $oldal != "kosar" && $oldal != "profil"){
+        }else if($oldal != "bejelentkezes" && $oldal != "kijelentkezes" && $oldal != "regisztracio" && $oldal != "fooldal" && $oldal != "kosar" && $oldal != "profil" && $oldal != "fizetes"){
             include('includes/kategoria.php');
         }else{
             include('includes/' . $oldal . '.php');

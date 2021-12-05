@@ -1,3 +1,8 @@
 img{
     max-height: 200px;
 }
+
+button{
+    border-radius: 0.5em;
+    box-shadow: none;
+}

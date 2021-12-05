@@ -1,5 +1,10 @@
 <?php
 	include_once('config.php');
+
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+        include('kosarba.php');
+    }
+
 	$sql = "SELECT * FROM termek WHERE nev = '" . urldecode(explode('/', $_SERVER['REQUEST_URI'])[3]) . "'";
 	$query = $pdo->prepare($sql);
 	$query->execute();
@@ -14,11 +19,11 @@
 
 	<div class="row mx-auto my-3">
 		<div class="col-xl-3 col-md-6 position-relative">
-			<img src="<?php echo $termek['kep_url'] ?>" class="position-absolute top-50 start-50 translate-middle" alt="<?php echo $termek['nev'] ?>">
+			<img src="<?php echo $termek['kep_url']; ?>" class="position-absolute top-50 start-50 translate-middle" alt="<?php echo $termek['nev']; ?>">
 		</div>
 		<div class="col-xl-6 col-md-12">
 			<div class="row mx-auto my-2">
-				<h2 class="fs-3"><?php echo $termek['nev'] ?></h2>
+				<h2 class="fs-3"><?php echo $termek['nev']; ?></h2>
 			</div>
 			<div class="row mx-auto my-3">
 				<div class="col-xl-12">
@@ -37,15 +42,23 @@
 		</div>
 		<div class="col-xl-3 col-md-6">
 			<div class="row mx-auto my-2">
-				<h2 class="text-danger fs-3">Ár: <?php echo $termek['ar'] ?> Ft</h2>
+				<h2 class="text-danger fs-3">Ár: <?php echo $termek['ar']; ?> Ft</h2>
 			</div>
 			<div class="row mx-auto my-3">
-				<p>Raktáron: <?php echo $termek['raktaron'] ?> db</p>
+				<p>Raktáron: <?php echo $termek['raktaron']; ?> db</p>
 			</div>
 			<div class="row mx-auto my-5">
 				<div class="d-flex justify-content-around">
-					<form>
-						<button type="submit" class="btn btn-success">Kosárba</button>
+					<form action="<?php echo $_SERVER["REQUEST_URI"]; ?>" method="post">
+						<select name="hanyDarab" id="hanyDarab">
+							<?php
+								for($i = 0; $i <= intval($termek['raktaron']); $i++){
+									echo '<option value="' . $i . '">' . $i . '</option>';
+								}
+							?>
+						</select>
+						<input type="hidden" name="termekId" value="<?php echo $termek['id']; ?>" class="form-control">
+						<button type="submit" class="btn btn-success mt-2">Kosárba</button>
 					</form>
 				</div>
 			</div>
@@ -81,7 +94,9 @@
 								<p class="text-danger my-3 fs-4">Ár: ' . $row['ar'] . ' Ft</p>
 								<div class="d-flex justify-content-around">
 									<a href="https://webshop-beadando.000webhostapp.com' . '/' . urlencode($row['kategoria_nev']) . '/' . urlencode($row['alkategoria_nev']) . '/' . urlencode($row['nev']) . '" class="btn btn-primary">Részletek</a>
-									<form>
+									<form action="' . $_SERVER["REQUEST_URI"] . '" method="post">
+										<input type="hidden" name="hanyDarab" value="1" class="form-control">
+										<input type="hidden" name="termekId" value="' . $row["id"] . '" class="form-control">
 										<button type="submit" class="btn btn-success">Kosárba</button>
 									</form>
 								</div>

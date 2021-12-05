@@ -1,6 +1,10 @@
 <?php
 	include_once('config.php');
 
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+        include('kosarba.php');
+    }
+
 	$sql = "SELECT id, alkategoria_nev from alkategoria WHERE alkategoria_nev = '" . urldecode(explode('/', $_SERVER['REQUEST_URI'])[2]) . "'";
 	$query = $pdo->prepare($sql);
 	$query->execute();
@@ -53,7 +57,9 @@
 						<div class="row mx-auto my-5">
 							<div class="d-flex justify-content-around">
 								<a href="' . $_SERVER['REQUEST_URI'] . '/' . urlencode($termek_nev) . '" class="btn btn-primary">Részletek</a>
-								<form>
+								<form action=' . $_SERVER["REQUEST_URI"] . ' method="post">
+									<input type="hidden" name="hanyDarab" value="1" class="form-control">
+									<input type="hidden" name="termekId" value="' . $row["id"] . '" class="form-control">
 									<button type="submit" class="btn btn-success">Kosárba</button>
 								</form>
 							</div>

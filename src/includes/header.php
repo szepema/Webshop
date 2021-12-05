@@ -1,5 +1,6 @@
 <?php
     include_once('config.php');
+    session_start();
 ?>
 
 <header class="p-1 text-white mx-auto">
@@ -49,11 +50,19 @@
                 </form>
 
                 <div>
-                    <a class="ikon" href="/kosar"><img src="/img/cart.png" alt="kosár" width="30" height="30"></a>
-                    <a class="ms-2 ikon" href="/bejelentkezes"><img src="/img/login.png" alt="bejelentkezés" width="30"
-                            height="30"></a>
-                    <a class="ms-2 ikon" href="/profil"><img src="/img/profile.png" alt="profil" width="30"
-                            height="30"></a>
+                    <?php
+                        if(!$_SESSION['loggedin']){
+                            echo '<a class="ikon" href="/kosar"><img src="/img/cart.png" alt="kosár" width="30" height="30"></a>
+                                    <a class="ms-2 ikon" href="/bejelentkezes"><img src="/img/login.png" alt="bejelentkezés" width="30"
+                                            height="30"></a>';
+                        }else{
+                            echo '<a class="ikon" href="/kosar"><img src="/img/cart.png" alt="kosár" width="30" height="30"></a>
+                                    <a class="ms-2 ikon" href="/kijelentkezes"><img src="/img/logout.png" alt="kijelentkezes" width="30"
+                                            height="30"></a>
+                                    <a class="ms-2 ikon" href="/profil"><img src="/img/profile.png" alt="profil" width="30"
+                                            height="30"></a>';
+                        }
+                    ?>
                 </div>
             </div>
 

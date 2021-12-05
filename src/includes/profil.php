@@ -5,7 +5,7 @@
         <div class="row pt-4">
             <div class="col-3">
                 <h1 class="fs-2">Profil</h1>
-                <div class="fs-5">test@example.com</div>
+                <div class="fs-5"><?php echo $_SESSION['email'] ?></div>
             </div>
             <div class="col-9">
                 <table class="table table-striped mb-5">
@@ -17,23 +17,29 @@
                             <th scope="col">Státusz</th>
                             <th scope="col">Ár</th>
                             <th scope="col">Cím</th>
+                            <th scope="col">Név</th>
+                            <th scope="col">Telefonszám</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row"><a href="#">5</a></th>
-                            <td>2021.10.12.</td>
-                            <td>Úton</td>
-                            <td>10000 Ft</td>
-                            <td>Debrecen, Kossuth tér 1.</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><a href="#">4</a></th>
-                            <td>2021.09.11.</td>
-                            <td>Előkészítés alatt</td>
-                            <td>12000 Ft</td>
-                            <td>Debrecen, Kossuth tér 1.</td>
-                        </tr>
+                        <?php
+                            session_start();
+                            $sql = "SELECT * FROM megrendelesek join kosar on megrendelesek.kosar_id = kosar.id WHERE megrendelesek.user_id = " . $_SESSION["id"] . " AND statusz != 'kézbesítve'";
+                            $query = $pdo->prepare($sql);
+                            $query->execute();
+
+                            while($row = $query->fetch()){
+                                echo '<tr>
+                                        <th scope="row">' . $row['id'] . '</th>
+                                        <td>' . $row['megrendeles_ideje'] . '</td>
+                                        <td>' . $row['statusz'] . '</td>
+                                        <td>' . $row['vegosszeg'] . ' Ft</td>
+                                        <td>' . $row['cim'] . '</td>
+                                        <td>' . $row['nev'] . '</td>
+                                        <td>' . $row['phone'] . '</td>
+                                    </tr>';
+                            }
+                        ?>
                     </tbody>
                 </table>
                 <table class="table table-striped mb-5">
@@ -45,30 +51,28 @@
                             <th scope="col">Státusz</th>
                             <th scope="col">Ár</th>
                             <th scope="col">Cím</th>
+                            <th scope="col">Név</th>
+                            <th scope="col">Telefonszám</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row"><a href="#">3</a></th>
-                            <td>2021.05.11.</td>
-                            <td>Kézbesítve</td>
-                            <td>10000 Ft</td>
-                            <td>Debrecen, Kossuth tér 1.</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><a href="#">2</a></th>
-                            <td>2021.05.11.</td>
-                            <td>Kézbesítve</td>
-                            <td>12000 Ft</td>
-                            <td>Debrecen, Kossuth tér 1.</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><a href="#">1</a></th>
-                            <td>2021.05.11.</td>
-                            <td>Kézbesítve</td>
-                            <td>12000 Ft</td>
-                            <td>Debrecen, Kossuth tér 1.</td>
-                        </tr>
+                    <?php
+                        $sql = "SELECT * FROM megrendelesek join kosar on megrendelesek.kosar_id = kosar.id WHERE megrendelesek.user_id = " . $_SESSION["id"] . " AND statusz = 'kézbesítve'";
+                        $query = $pdo->prepare($sql);
+                        $query->execute();
+
+                        while($row = $query->fetch()){
+                            echo '<tr>
+                                    <th scope="row">' . $row['id'] . '</th>
+                                    <td>' . $row['megrendeles_ideje'] . '</td>
+                                    <td>' . $row['statusz'] . '</td>
+                                    <td>' . $row['vegosszeg'] . ' Ft</td>
+                                    <td>' . $row['cim'] . '</td>
+                                    <td>' . $row['nev'] . '</td>
+                                    <td>' . $row['phone'] . '</td>
+                                </tr>';
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
