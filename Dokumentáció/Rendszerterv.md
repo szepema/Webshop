@@ -30,11 +30,14 @@ Webshop Rendszerterv
 
 4. Követelmények
 
-    - Jelszavak és személyes adatok titkosítása
+    - Regisztrációs adatok mentése
+    - Jelszavak titkosítása
     - Jelszó erősség ellenörzése
+    - Bejelentkezés ellenőrzése
     - Bejelentkezésre való lehetőség létrehozása
     - Kijelentkezés biztosítása
     - Kosárhoz kötető funkciók (betevés, kivevés) biztosítása
+    - Termék megrendelés lehetősége
 
 5. Funkcionális terv
     - Bejelentkezés:
@@ -44,25 +47,33 @@ Webshop Rendszerterv
     - Regisztráció:
         - Email és jelszó használatával
         - Jelszó erősség ellenörzése
+        - Használatban lévő email cím ellenörzése
+        - Ellenőrzés gyanánt a jelszót kétszer kell ellenőrizni
 
     - Profil:
-        - Állítható vezeték és keresztnév
-        - Lakhely/szállításai cím beállítása
+        - Email-cím megjelenítése
+        - Korábbi és folyamatban lévő rendelések ellenőrzése
 
     - Frontend:
         - Keresés weblapon belül 
-        - Work in progress
+        - Kategóriák és alkategóriák kialakítása
+        - Adott termékek részletes leírásának megtekintése
 
     - Kosár:
         - Kiválasztott termékek eltárolása
+        - Adatok hiányában a rendelés nem jöhet létre 
         - Kosárban lévő tárgyak eltávolítása
-        - Kuponok felhasználása
-        - Kosárban lévő termékek megvásárlása 
+        - Kosárban lévő termékek megvásárlása
+
+    - Megrendelés:
+        - Rendelési adatok beállítása és azok elmentése a profilra 
 
 
 6. Adatbázis terv
 
     Az felhasználói adatok (email, jelszó, lakhely, név), kosár adatok, rendelési adatok, kuponkódok és a termékek egy MySQL adatbázisabn vannak eltárolva. 
+
+    ![adatbazis](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/adatbazis.PNG)
 
 
 7. Fizikai környezet
@@ -75,7 +86,11 @@ Webshop Rendszerterv
             - Google Chrome
             - Firefox
             - Chromium
+        - Webtárhely:
+            - 000webhostapp.com
         - Adatbázis:
             - phpMyAdmin
-        
 
+8. Hiba üzenetek
+
+    A weboldalon több helyen is találkozhatunk hiba üzenetekkel. Akkor kaphatunk ilyet, ha regisztrációnál már létező email címet akarunk használni, a jelszó nem felel meg a jeslzó formálási feltételeknek és ha két beírt jelszó nem felel meg egymásnak. A bejelentkező oldalon akkor kaphatunk ilyet, ha az adatbázisban nem található meg a jelszó, vagy az email cím. A rendelési funkciónál akkor kaphatunk hibát, ha a megadott mezők kitöltése nélkül akarunk rendelni.

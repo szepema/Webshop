@@ -15,11 +15,13 @@ Funkcionális specifikáció
 
 5. Követelmény lista
 
-    - Jelszavak és személyes adatok titkosítása
+    - Jelszavak titkosítása
     - Jelszó erősség ellenörzése
+    - Bejelentkezés ellenőrzése
     - Bejelentkezésre való lehetőség létrehozása
     - Kijelentkezés biztosítása
     - Kosárhoz kötető funkciók (betevés, kivevés) biztosítása
+    - Termék megrendelés lehetősége
 
 6. Használati esetek
 
@@ -28,9 +30,8 @@ Funkcionális specifikáció
         - Bejelenkezhet az oldalra
         - Kijelenkezhet az oldalról
         - Megtekintheti a kategóriákat, alkategóriákat és a termékek oldalait
-        - Megnyithatja az ÁSZF-et
+        - Megtekintheti a profilját, ahol láthatja a korábbi és éppen folyamatban lévő rendeléseit
         - A kosárba betehet, kivehet termékeket
-        - Megadhat kuponkódot a vásárlás során
         - Megadthatja a szállítási adait
         
 7. Képernyő tervek
@@ -41,8 +42,23 @@ Funkcionális specifikáció
 
     ![fooldal](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/fooldal.png)
 
-    A második kép pedig a bejelentkezési felületet tartalmazza:
+    Ez a kép a bejelentkezési felületet tartalmazza:
 
     ![bejelentkezes](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/bejelentkezes.png)
+
+    Ezen a regisztrációs felület látható: 
+
+    ![regisztracio](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/regisztracio.png)
+
+    Ezen a termék leírás terve látható:
+
+    ![termek](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/termek.png)
  
+    Ezen az alkategória terve látható:
+
+    ![alkategoriak](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/alkategoriak.png)
+
+    Végül pedig a kategória terv:
+
+    ![kategoriak](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/kategoriak.png)
 

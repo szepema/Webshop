@@ -20,3 +20,9 @@ Követelmény specifikáció
     - Bejelentkezésre való lehetőség létrehozása
     - Kijelentkezés biztosítása
     - Kosárhoz kötető funkciók (betevés, kivevés) biztosítása
+
+5. Regisztrációs forgatókönyv
+
+    Amennyiben egy felhasználó profilt szeretne létrehozni, vagy létező profilhoz akar hozzá férni az adatbázison belül, akkor a következő forgatókönyvek lehetségesek
+
+    ![bejelentkezes_regisztracio_flowchart](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/bejelentkezes_regisztracio_flowchart.png)
