@@ -1,11 +1,11 @@
 <?php 
+require_once('config.php');
+
 session_start();
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
-    header("location: fooldal.php");
+    header("location: https://webshop-beadando.000webhostapp.com");
     exit;
 }
-
-require_once('config.php');
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -45,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["id"] = $id;
                             $_SESSION["email"] = $email;
 
-                            header("location: fooldal.php");
+                            header("location: https://webshop-beadando.000webhostapp.com");
                         } else {
                             $login_err = "Invalid username or password.";
                         }

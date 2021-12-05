@@ -71,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_jelszo = password_hash($jelszo, PASSWORD_DEFAULT);
 
             if($stmt->execute()){
-                header("location: bejelentkezes.php");
+                header("location: https://webshop-beadando.000webhostapp.com/bejelentkezes");
 
             } else {
                 echo "Kaka van a palacsintában";
