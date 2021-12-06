@@ -26,3 +26,7 @@ Követelmény specifikáció
     Amennyiben egy felhasználó profilt szeretne létrehozni, vagy létező profilhoz akar hozzá férni az adatbázison belül, akkor a következő forgatókönyvek lehetségesek
 
     ![bejelentkezes_regisztracio_flowchart](https://raw.githubusercontent.com/szepema/Webshop/main/Dokument%C3%A1ci%C3%B3/bejelentkezes_regisztracio_flowchart.png)
+    
+6. Ár ajánlat
+
+    A projektünk célja egy sablon létrehozása volt, amit cégek saját felhasználásukra alakíthatnak, így árajánlatunkban nem fogunk felszámolni üzemeltetési és karbantartási díjjakat, csak a munka díjjakat. A projekttel összes 30 órát dolgoztunk, hármunk között szétosztva. Óradíjjunknak 4500-at számolunk fel. Így a weblapunkért összesen 135 000 Ft-t fogunk kérni.
