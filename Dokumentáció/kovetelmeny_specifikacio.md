@@ -29,4 +29,4 @@ Követelmény specifikáció
     
 6. Ár ajánlat
 
-    A projektünk célja egy sablon létrehozása volt, amit cégek saját felhasználásukra alakíthatnak, így árajánlatunkban nem fogunk felszámolni üzemeltetési és karbantartási díjjakat, csak a munka díjjakat. A projekttel összes 30 órát dolgoztunk, hármunk között szétosztva. Óradíjjunknak 4500-at számolunk fel. Így a weblapunkért összesen 135 000 Ft-t fogunk kérni.
+    A projektünk célja egy sablon létrehozása volt, amit cégek saját felhasználásukra alakíthatnak, így árajánlatunkban nem fogunk felszámolni üzemeltetési és karbantartási díjjakat, csak a munka díjjakat. A projekttel összes 30 órát dolgoztunk, hármunk között szétosztva. Óradíjjunknak 3000 frintot számolunk el. Így összesen a weblap sablon használatáért 90 000 forintot fogunk kérni.
